@@ -1,23 +1,31 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [counter, setCounter] = useState(0)
+
+  const onClick = () => {
+    setCounter({counter: this.state.counter + 1})
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <h1 className="heading"> Clicker Game </h1>
+      <h2 className="desc">Click on the number to increase it!</h2>
+      <div className="container">
+        <button 
+          onClick={() => setCounter(counter + 1)}
+          className="btn">
+          {counter}
+        </button>
+      </div>
+      <div className="container">
+          <button
+            className="btn2"
+            onClick = {() => setCounter(0)}
+            >
+            Reset
+          </button>
+        </div>
     </div>
   );
 }
